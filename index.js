@@ -3,11 +3,18 @@ const cors = require("express");
 require("dotenv").config();
 
 const app = express();
-const corsOption = {
-  origin: "https://test-app-lyart-two.vercel.app",
-};
+// var whitelist = ["http://localhost:3000"];
+// var corsOptions = {
+//   origin: function (origin, callback) {
+//     if (whitelist.indexOf(origin) !== -1) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error("Not allowed by CORS"));
+//     }
+//   },
+// };
+app.use(cors());
 app.use(express.json());
-app.use(cors(corsOption));
 
 // app.use((req, res, next) => {
 //   console.log(req.headers);
@@ -26,7 +33,7 @@ app.use(cors(corsOption));
 app.get("/", (req, res) => {
   return res.send({
     data: "connected to backend",
-    origine: req.headers.origin,
+    // origine: req.headers.origin,
     status: true,
   });
 });
