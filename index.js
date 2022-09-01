@@ -21,23 +21,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// app.get("/", (req, res) => {
-//   return res.send({
-//     data: "connected to backend",
-//     origine: req.headers.origin,
-//     status: true,
-//   });          
-// });
-// app.get("/posting", (req, res) => {
-//   return res.send({
-//     data: "connected to backend again",
-//     origine: req.headers.origin,
-//     status: true,
-//   });
-// });
-
-console.log(require("./src/routes/index")())
-app.use("/api", require("./src/routes/index"));
+// app.use("/api", require("./src/routes/index"));
 app.get("/", (req, res) => {
   return res.send({
     data: "connected to backend",
